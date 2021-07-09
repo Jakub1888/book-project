@@ -1,0 +1,22 @@
+@import "./normalize.css";
+@import "./app/shared/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+
+body {
+  font-family: "Varela", sans-serif;
+
+  @include gradient-bg;
+}
+
+html,
+body,
+app-root {
+  height: 100%;
+}
+body {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

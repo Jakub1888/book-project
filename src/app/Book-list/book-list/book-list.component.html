@@ -1,0 +1,15 @@
+<div class="book-component">
+  <h2>book list</h2>
+  <ul class="books">
+    <li>
+      <a
+        *ngFor="let book of books"
+        routerLinkActive="active"
+        [routerLink]="[book.id]"
+        ><span class="badge"></span> {{ book.title }}</a
+      >
+    </li>
+  </ul>
+
+  <button (click)="onReviewRedirect()">add review</button>
+</div>

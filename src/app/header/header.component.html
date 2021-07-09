@@ -1,0 +1,13 @@
+<header>
+  <nav>
+    <span class="title">{{ title }}</span>
+    <a
+      routerLink="/home"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a routerLink="/books" routerLinkActive="active">Books</a>
+    <a routerLink="/review" routerLinkActive="active">Review</a>
+  </nav>
+</header>

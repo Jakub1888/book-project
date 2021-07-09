@@ -1,0 +1,17 @@
+.form-content,
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  width: 15em;
+}
+label {
+  padding-top: 1em;
+}
+
+.help-block {
+  color: rgb(197, 33, 33);
+}

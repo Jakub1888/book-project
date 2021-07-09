@@ -1,0 +1,42 @@
+@import "../shared/variables.scss";
+header {
+  margin-bottom: 3em;
+  background-color: $secondary-color1;
+  padding: 0 5em;
+
+  .active {
+    background: $secondary-color1;
+    border: 3px solid darken($secondary-color1, 10%);
+    @include box-shadow-inset;
+    transition: 0s;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 4em;
+
+  .title {
+    margin-right: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    border: 3px solid #b6b6b6;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin-left: 0.6em;
+    @include transition(0.3s ease-in-out);
+  }
+
+  a:hover,
+  a:focus {
+    cursor: pointer;
+    background: $secondary-color1;
+    border: 3px solid darken($secondary-color1, 10%);
+    @include box-shadow-inset;
+  }
+}

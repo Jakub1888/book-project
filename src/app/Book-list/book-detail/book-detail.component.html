@@ -1,0 +1,16 @@
+<div *ngIf="book">
+  <h2>{{ book.title }}</h2>
+
+  <div class="detail-content">
+    <img [src]="book.img" />
+    <div class="description-text">
+      <h3>Book description:</h3>
+      <app-modal id="review-modal">
+        <p>{{ book.description }}</p>
+        <button (click)="onCloseModal('review-modal')">Close</button>
+      </app-modal>
+
+      <button (click)="onOpenModal('review-modal')">open</button>
+    </div>
+  </div>
+</div>

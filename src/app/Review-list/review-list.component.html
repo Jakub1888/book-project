@@ -1,0 +1,8 @@
+<app-review-add></app-review-add>
+<ul>
+  <li *ngFor="let review of reviews; let i = index">
+    {{ review.reviewAuthor }} - {{ review.reviewText }} -
+    {{ review.reviewDate | date: "medium" }}
+    <button (click)="onReviewDelete(i)">Delete</button>
+  </li>
+</ul>

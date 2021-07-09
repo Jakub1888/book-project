@@ -1,0 +1,29 @@
+$main-color: #94f1f1;
+$secondary-color1: #dff0d8;
+$secondary-color2: #e85a4f;
+$secondary-color3: #ece7d6;
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin box-shadow-inset {
+  -webkit-box-shadow: inset 0 0 0 5px darken($secondary-color1, 15%);
+  box-shadow: inset 0 0 0 5px darken($secondary-color1, 25%);
+}
+
+@mixin gradient-bg {
+  background: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from($main-color),
+    to(#219191)
+  );
+  background: -o-linear-gradient(right, $main-color, #219191);
+  background: linear-gradient(to left, $main-color, #219191);
+}

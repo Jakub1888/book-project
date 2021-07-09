@@ -1,0 +1,36 @@
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+  <div class="form-content">
+    <div class="inputs">
+      <label for="username">Review Author</label>
+      <input
+        type="text"
+        id="username"
+        #usernameInput
+        formControlName="username"
+      />
+      <span
+        *ngIf="
+          !reviewForm.get('username').valid &&
+          reviewForm.get('username').touched
+        "
+        class="help-block"
+        >Please enter a valid username</span
+      >
+    </div>
+    <div class="inputs">
+      <label for="reviewText">Review text</label>
+      <textarea
+        type="text"
+        id="text"
+        #reviewTextInput
+        formControlName="text"
+      ></textarea>
+      <span
+        *ngIf="!reviewForm.get('text').valid && reviewForm.get('text').touched"
+        class="help-block"
+        >Please enter a text of your review</span
+      >
+    </div>
+  </div>
+  <button type="submit" [disabled]="!reviewForm.valid">Add Review</button>
+</form>

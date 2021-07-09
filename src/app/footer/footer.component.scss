@@ -1,0 +1,84 @@
+@import "../shared/variables.scss";
+
+aside {
+  background: #fff;
+  color: $main-color;
+  height: auto;
+  margin: 0 auto;
+  padding: 3em;
+  border-top: 1px solid #000;
+
+  h2 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1.3em;
+    padding-top: 1em;
+    padding-bottom: 1.8em;
+    margin: 0;
+  }
+
+  .contact-links,
+  .contact-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-text {
+    flex-direction: column;
+  }
+
+  i {
+    padding-right: 0.3em;
+  }
+}
+
+.contact-links {
+  li {
+    display: inline-block;
+    margin-left: 2em;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding-bottom: 0.2em;
+  }
+  li a {
+    text-decoration: none;
+    color: $main-color;
+    padding-bottom: 0.2em;
+    border-bottom: 2px solid $main-color;
+  }
+
+  li a:hover,
+  li a:focus {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 1.1em;
+    border-bottom: none;
+    text-decoration: none;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  background: rgb(241, 239, 239);
+  padding: 0.3em;
+  font-size: 0.7em;
+
+  a {
+    padding-left: 0.3em;
+    color: black;
+    text-decoration: none;
+    @include transition(0.3s ease-in-out);
+  }
+
+  a:hover,
+  a:focus {
+    color: rgb(238, 91, 91);
+  }
+}

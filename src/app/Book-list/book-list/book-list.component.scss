@@ -1,0 +1,57 @@
+@import "../../shared/variables.scss";
+
+.book-component {
+  padding: 0 5em;
+}
+
+h2 {
+  text-align: center;
+}
+
+.books {
+  margin: 3em 2em;
+  list-style-type: none;
+  padding: 1em;
+  border-radius: 1em;
+  width: 30em;
+  background: white;
+}
+.books a {
+  cursor: pointer;
+  display: flex;
+  width: 15em;
+  left: 0;
+  background: rgb(238, 232, 232);
+  margin: 0.5em;
+  padding: 0.3em;
+  height: 1.2em;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 1.4em;
+  position: relative;
+}
+.books a:hover {
+  left: 0.1em;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: $secondary-color1;
+  visibility: hidden;
+  @include transition(0.3s ease-in-out);
+}
+
+a:hover:before,
+a:focus:before {
+  visibility: visible;
+  width: 100%;
+}
+
+.active {
+  border: 2px solid green;
+}
