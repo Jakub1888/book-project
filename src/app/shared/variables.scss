@@ -2,6 +2,8 @@ $main-color: #94f1f1;
 $secondary-color1: #dff0d8;
 $secondary-color2: #e85a4f;
 $secondary-color3: #ece7d6;
+$color-form: #263f50;
+$border-radius-box: 8px;
 
 @mixin transition($args...) {
   -webkit-transition: $args;
@@ -9,6 +11,16 @@ $secondary-color3: #ece7d6;
   -ms-transition: $args;
   -o-transition: $args;
   transition: $args;
+}
+
+@mixin text-shadow {
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+@mixin box-shadow {
+  -webkit-box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.64);
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.64);
 }
 
 @mixin box-shadow-inset {

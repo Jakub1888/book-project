@@ -17,7 +17,6 @@ const routes: Routes = [
       { path: ':id', component: BookDetailComponent },
     ],
   },
-
   { path: 'review', component: ReviewListComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'not-found', component: PageNotFoundComponent },

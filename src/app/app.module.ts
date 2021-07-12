@@ -16,6 +16,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BooksComponent } from './Book-list/books.component';
 import { BookStartComponent } from './Book-list/book-start/book-start.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BooksComponent,
     BookStartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

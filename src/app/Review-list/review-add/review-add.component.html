@@ -1,36 +1,38 @@
-<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
-  <div class="form-content">
-    <div class="inputs">
-      <label for="username">Review Author</label>
-      <input
-        type="text"
-        id="username"
-        #usernameInput
-        formControlName="username"
-      />
-      <span
-        *ngIf="
-          !reviewForm.get('username').valid &&
-          reviewForm.get('username').touched
-        "
-        class="help-block"
-        >Please enter a valid username</span
-      >
-    </div>
-    <div class="inputs">
-      <label for="reviewText">Review text</label>
-      <textarea
-        type="text"
-        id="text"
-        #reviewTextInput
-        formControlName="text"
-      ></textarea>
-      <span
-        *ngIf="!reviewForm.get('text').valid && reviewForm.get('text').touched"
-        class="help-block"
-        >Please enter a text of your review</span
-      >
-    </div>
-  </div>
-  <button type="submit" [disabled]="!reviewForm.valid">Add Review</button>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <label for="username">Review Author</label>
+  <input
+    class="form-input"
+    type="text"
+    id="username"
+    name="username"
+    ngModel
+    required
+  />
+
+  <label for="reviewText">Review text</label>
+  <textarea
+    class="form-input"
+    type="text"
+    id="text"
+    name="text"
+    ngModel
+    required
+  ></textarea>
+
+  <label for="reviewBook">Select a book to review</label>
+  <select class="form-input" name="book" ngModel>
+    <option *ngFor="let book of books">
+      {{ book.title }}
+    </option>
+  </select>
+
+  <label for="reviewRating">How would you rate this book?</label>
+  <select class="form-input" name="rating" ngModel>
+    <option *ngFor="let rating of ratings">
+      {{ rating }}
+    </option>
+  </select>
+
+  <button type="submit" [disabled]="!f.valid" class="button">Add Review</button>
+  <button type="button" (click)="onClear()">Clear</button>
 </form>

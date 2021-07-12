@@ -1,10 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Book } from '../book';
-import { BookService } from 'src/app/book.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Book } from '../book.model';
+import { BookService } from 'src/app/Book-list/book.service';
 import { Reviews } from 'src/app/Review-list/reviews.model';
 import { ReviewService } from 'src/app/Review-list/review.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -15,7 +14,7 @@ export class BookListComponent implements OnInit {
   books: Book[] = [];
   reviews: Reviews[] = [];
   @Input() index: number;
-  private revAddedSub: Subscription;
+  filteredBook = '';
 
   constructor(
     private bookService: BookService,
@@ -28,10 +27,6 @@ export class BookListComponent implements OnInit {
 
   onReviewRedirect() {
     this.router.navigate(['/review'], { relativeTo: this.route });
-  }
-
-  onReviewDelete(index: number) {
-    this.reviews.splice(index, 1);
   }
 
   getBooks(): void {

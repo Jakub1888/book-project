@@ -1,17 +1,97 @@
-.form-content,
-.inputs {
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-textarea {
-  width: 15em;
-}
-label {
-  padding-top: 1em;
-}
+@import "../../shared/variables.scss";
 
 .help-block {
   color: rgb(197, 33, 33);
+}
+
+.ng-invalid:not(form).ng-touched {
+  border: 1px solid red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2em;
+  padding-bottom: 1em;
+  background: $color-form;
+  max-height: 25em;
+  width: 25em;
+  border-radius: $border-radius-box;
+  @include box-shadow();
+}
+.form-input:focus,
+button:focus,
+input[type="submit"] {
+  outline: none;
+  border: 1px solid darken($secondary-color1, 15%);
+  @include transition(0.2s ease-in-out);
+}
+
+h2 {
+  color: white;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.8em;
+  padding-bottom: 0.4em;
+}
+
+textarea {
+  min-height: 7em;
+}
+
+.form-input {
+  font-weight: 500;
+  margin-top: 0.7em;
+  padding: 0.5em;
+  border-radius: $border-radius-box;
+  border: none;
+  background: $color-form;
+  border: 1px solid white;
+  color: white;
+}
+
+select {
+  cursor: pointer;
+  @include transition(0.2s ease-in-out);
+}
+
+input[type="submit"] {
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: 0.1em;
+  border: none;
+  background: white;
+  color: $secondary-color1;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 0.5em 1.3em;
+  font-weight: 500;
+  font-size: 1.2em;
+  border: 3px solid #b6b6b6;
+  @include transition(0.3s ease-in-out);
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background: $secondary-color1;
+  border: 3px solid $secondary-color1;
+  @include box-shadow-inset;
+  @include transition(0.3s ease-in-out);
+}
+
+.select {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0;
+
+  select {
+    margin-right: auto;
+    width: 49%;
+  }
+
+  select:last-of-type {
+    margin: 0;
+  }
 }

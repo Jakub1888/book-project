@@ -1,13 +1,1 @@
 @import "../shared/variables.scss";
-
-.home {
-  overflow-y: auto;
-  height: 100%;
-
-  h1 {
-    display: flex;
-    justify-content: center;
-    font-size: 4em;
-    padding-top: 1.2em;
-  }
-}

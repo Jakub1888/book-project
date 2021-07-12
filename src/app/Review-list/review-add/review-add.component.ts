@@ -1,10 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Reviews } from '../reviews.model';
 import { ReviewService } from '../review.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ModalService } from 'src/app/shared/modal/modal.service';
+
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { BookService } from 'src/app/Book-list/book.service';
+import { Book } from 'src/app/Book-list/book.model';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-review-add',
@@ -12,25 +14,44 @@ import { ModalService } from 'src/app/shared/modal/modal.service';
   styleUrls: ['./review-add.component.scss'],
 })
 export class ReviewAddComponent implements OnInit {
-  @ViewChild('usernameInput') usernameInputRef: ElementRef;
-  @ViewChild('reviewTextInput') reviewTextInputRef: ElementRef;
-  reviewForm: FormGroup;
-
-  onSubmit() {
-    let revUsername = this.usernameInputRef.nativeElement.value;
-    let revText = this.reviewTextInputRef.nativeElement.value;
-    const revDate = new Date();
-    const newReview = new Reviews(revUsername, revText, revDate);
-    this.reviewService.addReview(newReview);
-    this.reviewForm.reset();
-  }
-
-  constructor(private reviewService: ReviewService) {}
+  @ViewChild('f') bkForm: NgForm;
+  books: Book[] = [];
+  ratings = ['★', '★ ★', '★ ★ ★', '★ ★ ★ ★', '★ ★ ★ ★ ★'];
 
   ngOnInit() {
-    this.reviewForm = new FormGroup({
-      username: new FormControl(null, Validators.required),
-      text: new FormControl(null, Validators.required),
-    });
+    this.getBooks();
+  }
+
+  constructor(
+    private reviewService: ReviewService,
+    private bookService: BookService,
+    private dataStorageService: DataStorageService
+  ) {}
+
+  getBooks(): void {
+    this.bookService.getBooks().subscribe((books) => (this.books = books));
+  }
+
+  onSubmit(form: NgForm) {
+    const value = form.value;
+    const revDate = new Date();
+    const newReview = new Reviews(
+      value.username,
+      value.text,
+      value.book,
+      value.rating,
+      revDate
+    );
+    this.reviewService.addReview(newReview);
+    this.onSaveData();
+    form.reset();
+  }
+
+  onClear() {
+    this.bkForm.reset();
+  }
+
+  onSaveData() {
+    this.dataStorageService.storeReviews();
   }
 }

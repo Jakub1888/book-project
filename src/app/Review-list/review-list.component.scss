@@ -1,0 +1,16 @@
+.review-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.review-list {
+  min-height: 15em;
+  margin: 0 auto;
+  width: 25em;
+  background: rgb(230, 223, 223);
+}
+
+app-review-add {
+  padding-left: 2em;
+  margin: 0 auto;
+}

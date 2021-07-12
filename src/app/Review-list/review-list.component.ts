@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { DataStorageService } from '../shared/data-storage.service';
 
 import { ReviewService } from './review.service';
 import { Reviews } from './reviews.model';
@@ -13,7 +14,10 @@ export class ReviewListComponent implements OnInit, OnDestroy {
   reviews: Reviews[] = [];
   private revAddedSub: Subscription;
 
-  constructor(private reviewService: ReviewService) {}
+  constructor(
+    private reviewService: ReviewService,
+    private dataStorageService: DataStorageService
+  ) {}
 
   ngOnInit(): void {
     this.reviews = this.reviewService.getReviews();
@@ -22,9 +26,19 @@ export class ReviewListComponent implements OnInit, OnDestroy {
         this.reviews = reviews;
       }
     );
+    this.onFetchData();
+  }
+
+  onFetchData() {
+    this.dataStorageService.fetchReviews();
   }
 
   ngOnDestroy() {
     this.revAddedSub.unsubscribe();
+  }
+
+  onReviewDelete(index: number) {
+    this.reviewService.deleteReview(index);
+    this.dataStorageService.storeReviews();
   }
 }
