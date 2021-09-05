@@ -1,0 +1,17 @@
+<div class="article-list">
+  <router-outlet></router-outlet>
+  <section class="article-items">
+    <app-article-item
+      *ngFor="let articleEl of articles; let i = index"
+      [article]="articleEl"
+      [index]="i"
+    ></app-article-item>
+    <button
+      [ngClass]="{ hidden: !showButton }"
+      class="article-button"
+      (click)="onAddArticle()"
+    >
+      Add Article
+    </button>
+  </section>
+</div>

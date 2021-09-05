@@ -1,0 +1,51 @@
+#article-form {
+  max-width: 40em;
+  padding-right: 2em;
+
+  input.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+}
+.angular-editor-wrapper,
+.angular-editor-textarea {
+  min-height: 12em !important;
+}
+.article-headers {
+  display: flex;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.article-input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin: 0;
+  }
+}
+
+.article-input:first-of-type {
+  margin-right: 1em;
+  width: 100%;
+}
+
+@media screen and (max-width: 960px) {
+  #article-form {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #article-form {
+    width: 19em;
+  }
+
+  .article-headers {
+    flex-direction: column;
+  }
+}

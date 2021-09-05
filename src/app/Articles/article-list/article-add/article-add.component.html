@@ -1,0 +1,74 @@
+<div class="text-danger" *ngIf="!isValid">Fill out the required fields</div>
+<small>Inputs containing * are required</small>
+
+<form id="article-form" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <div class="article-headers">
+    <div class="article-input">
+      <label for="title">Article title *</label>
+      <input type="text" id="title" formControlName="title" />
+      <div
+        *ngIf="
+          articleForm.get('title').invalid &&
+          articleForm.get('title').errors &&
+          (articleForm.get('title').dirty || articleForm.get('title').touched)
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="articleForm.get('title').hasError('required')"
+        >
+          This field is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="article-input">
+      <label for="author">Author's name *</label>
+      <input type="text" id="author" formControlName="author" />
+      <div
+        *ngIf="
+          articleForm.get('author').invalid &&
+          articleForm.get('author').errors &&
+          (articleForm.get('author').dirty || articleForm.get('author').touched)
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="articleForm.get('author').hasError('required')"
+        >
+          This field is required.
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-input">
+    <label for="articleText">Article content *</label>
+    <angular-editor
+      id="articleText"
+      formControlName="articleText"
+    ></angular-editor>
+    <div
+      *ngIf="
+        articleForm.get('articleText').invalid &&
+        articleForm.get('articleText').errors &&
+        (articleForm.get('articleText').dirty ||
+          articleForm.get('articleText').touched)
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="articleForm.get('articleText').hasError('required')"
+      >
+        This field is required.
+      </small>
+    </div>
+  </div>
+
+  <div class="article-buttons">
+    <button class="article-button" type="button" (click)="onCancel()">
+      Cancel
+    </button>
+    <button class="article-button" type="submit">Submit article</button>
+  </div>
+</form>

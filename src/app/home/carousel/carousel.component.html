@@ -1,0 +1,11 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let slide of slides">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h5>{{ slide.title }}</h5>
+        <img class="avatars" src="{{ slide.img }}" alt="" />
+      </div>
+      <p class="slide-text">{{ slide.text }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

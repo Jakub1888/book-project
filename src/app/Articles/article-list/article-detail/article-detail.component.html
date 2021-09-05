@@ -1,0 +1,8 @@
+<div class="article-detail">
+  <h2>{{ article.title }}</h2>
+  <h4>{{ article.author }}</h4>
+  <div innerHTML="{{ article.articleText }}"></div>
+  <button class="article-button" type="button" (click)="onGoBack()">
+    Back
+  </button>
+</div>

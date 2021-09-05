@@ -1,0 +1,46 @@
+<div>
+  <table class="table table-stripped table-bordered">
+    <thead class="thead-dark"></thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="book-details">
+            <h5 class="title">
+              {{ book.volumeInfo.title }}
+            </h5>
+            <h6 class="subtitle">{{ book.volumeInfo.subtitle }}</h6>
+            <p><b>Author:</b> {{ book.volumeInfo.authors }}</p>
+            <div class="text-wrap">
+              <div *ngIf="book.volumeInfo.description">
+                <em>{{
+                  book.volumeInfo.description.length > 250
+                    ? (book.volumeInfo.description | slice: 0:250)
+                    : book.volumeInfo.description
+                }}</em
+                ><a class="article-link" [routerLink]="[index]"
+                  >...More Details</a
+                >
+              </div>
+              <div *ngIf="!book.volumeInfo.description">
+                <em>Book does not contain description</em>
+              </div>
+              <br />
+
+              <a target="_blank" href="{{ book.accessInfo.webReaderLink }}"
+                >Ebook Link</a
+              >
+            </div>
+          </div>
+          <div class="image-wrap">
+            <img
+              [src]="book.volumeInfo.imageLinks.thumbnail"
+              lightbox
+              alt="{{ book.volumeInfo.title }} cover"
+              backgroundOpacity="0.85"
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

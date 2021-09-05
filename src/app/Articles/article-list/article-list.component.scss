@@ -1,0 +1,48 @@
+@import "../../shared/variables.scss";
+
+.article-list {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 3em;
+
+  .article-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2em;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.article-button {
+  background: #000;
+
+  border-radius: 22px;
+  padding: 0.5em 1em;
+  color: white;
+  text-decoration: none;
+  border: 1px solid black;
+  margin-top: 1.5em;
+  @include transition(0.2s all);
+}
+
+.article-button:first-of-type {
+  margin-right: 1em;
+}
+
+.article-button:hover {
+  color: #000;
+  background: #fff;
+}
+
+@media screen and (max-width: 960px) {
+  .article-list {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}

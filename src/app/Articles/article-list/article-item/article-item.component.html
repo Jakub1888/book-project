@@ -1,0 +1,13 @@
+<div class="article">
+  <div class="article-link" [routerLink]="[index]" routerLinkActive="active">
+    {{ article.title }}
+    <p>{{ article.author }}</p>
+
+    <em>{{ article.date | date: "medium" }}</em>
+    <div
+      class="preview-text"
+      innerHTML="{{ article.articleText | truncate: 200 }}"
+    ></div>
+  </div>
+  <!--<button type="button" (click)="onArticleDelete(index)">Delete article</button>-->
+</div>
